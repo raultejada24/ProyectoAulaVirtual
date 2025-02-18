@@ -1,0 +1,4 @@
+# Ignorar node_modules (para proyectos Node.js)
+node_modules/
+package-lock.json
+uploads/

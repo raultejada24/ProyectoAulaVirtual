@@ -1,0 +1,25 @@
+{{#subjects}}
+<!--Este documento devuelve html para que se pueda introducir tras pulsar el botón de cargar más asignaturas-->
+                <div class="col mb-5">
+                    
+                    <div id="card_subject" class=" card h-100">
+                        <!-- Subject image-->
+                        <img class="card-img-top" src="/subject/{{id}}/image" /> <!--El router que tiene esta ruta muestra la imagen que tiene asociada cada id-->
+                        <!--Subject details-->
+                        <div id="card_subject" class=" card-body p-4">
+                            <div class="text-center">
+                                <!-- Subject name-->
+                                <h5 class="fw-bolder">{{name}}</h5>
+                                <!-- Subject Teacher & Teacher-->
+                                {{teacher}} 
+                                <br>{{credits}}</br>
+                            </div>
+                        </div>
+                        <!-- Subject actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/detail/{{id}}">Acceder a la asignatura</a></div>
+                        </div>
+                    </div>
+                </div>
+            
+{{/subjects}}

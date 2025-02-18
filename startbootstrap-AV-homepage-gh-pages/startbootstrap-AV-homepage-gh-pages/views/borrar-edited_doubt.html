@@ -1,0 +1,21 @@
+{{>header}}
+    <section class="py-5 bg-light d-flex justify-content-center align-items-center">
+        <div class="container">
+            <h1 class="text-center mb-4 text-primary"><strong>Duda Actualizada Correctamente</strong></h1>
+            <h5 class="text-center mb-4"><strong>Detalles actualizados de la Duda:</strong></h5>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Nombre del estudiante:</strong> {{doubt.Studentname}}</li>
+                <li class="list-group-item"><strong>Fecha: </strong> {{doubt.doubtdate}}</li>
+                <li class="list-group-item"><strong>Tema: </strong> {{doubt.topic}}</li>
+                <li class="list-group-item"><strong>Descripción: </strong> {{doubt.doubtMessage}}</li>
+            </ul>
+            <div class="text-center mt-4">
+                <a href="/detail/{{subject_id}}" class="btn btn-primary bi bi-skip-backward-fill"> Volver a la página de la asignatura</a>
+            </div>
+        </div>
+    </section>
+
+    {{>footer}}
+</body>
+
+</html>

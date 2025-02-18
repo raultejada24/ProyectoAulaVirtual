@@ -1,0 +1,24 @@
+    {{>header}}
+<body>
+    <!-- Mensaje de duda creada correctamente -->
+    <section class="py-5">
+        <h1  class="text-center mb-4 text-primary"><strong>Duda Creada con Éxito</strong></h1>
+        <div class=" subject_info_detail container px-4 px-lg-5 mt-5 my-5 added_successfully">
+            <div class="doubt">
+                <h4><strong>Nombre del Alumno:</strong> {{name}} </h4>
+                <ul>
+                <li><strong>Fecha de Publicación:</strong> {{date}}</li>
+                <li><strong>Tema:</strong> {{topic}}</li>
+                <li><strong>Duda:</strong> {{doubtMessage}}</li>
+            </ul>
+            </div>
+            <div class="text-center mt-4">
+                <a href="/detail/{{id}}" class="btn btn-primary px-4 py-2 bi bi-skip-backward-fill"> Volver a la página de la asignatura</a>
+            </div>
+        </div>
+    </section>
+
+    {{>footer}}
+</body>
+
+</html>

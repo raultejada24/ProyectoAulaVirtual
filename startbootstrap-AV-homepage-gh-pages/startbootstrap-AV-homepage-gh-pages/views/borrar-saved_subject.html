@@ -1,0 +1,29 @@
+{{>header}}
+    <!-- Mensaje de asignatura creada correctamente -->
+    <section class="py-5">
+        <h3  class="text-center mb-4 text-primary"><strong>Asignatura Creada con Éxito</strong></h3>
+            <div class="subject_info_detail container mt-5 my-5 added_successfully">
+                {{#subject}}
+                <div class="subject">
+                    <h4 class="text-dark mb-3"><strong>Nombre de la Asignatura:</strong> {{name}}</h4>
+                    <ul>
+                    <li><strong>Créditos:</strong> {{credits}}</li>
+                    <li><strong>Profesor:</strong> {{teacher}}</li>
+                    <li><strong>Cuatrimestre:</strong> {{period}}</li>
+                    <li><strong>Descripción de la asignatura:</strong> {{desc}}</p>
+                    <div class="text-center my-4">
+                        <strong>Imagen de la Asignatura:</strong><br />
+                        <img src="/subject/{{subject.id}}/image" alt="Imagen de la asignatura" class="img-fluid rounded shadow-sm" style="max-width: 300px;">
+                    </div>
+                </ul>
+                </div>
+                {{/subject}}
+                <div class="text-center mt-4">
+                    <a href="/" class="btn btn-primary px-4 py-2"><i class="bi bi-house-door"></i> Volver a la página principal</a>
+                </div>
+            </div>
+    </section>
+    <!-- Footer -->
+    {{>footer}}
+</body>
+

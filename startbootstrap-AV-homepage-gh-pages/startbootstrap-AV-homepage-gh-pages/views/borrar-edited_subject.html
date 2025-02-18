@@ -1,0 +1,26 @@
+{{>header}}
+    <section class="py-5 bg-light d-flex justify-content-center align-items-center">
+        <div class="container">
+            <h1 class="text-center mb-4 text-primary"><strong>Asignatura Actualizada Correctamente</strong></h1>
+            <h5 class="text-center mb-4"><strong>Detalles actualizados de la asignatura:</strong></h5>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Nombre de la Asignatura:</strong> {{subject.name}}</li>
+                <li class="list-group-item"><strong>Descripción:</strong> {{subject.desc}}</li>
+                <li class="list-group-item"><strong>Créditos:</strong> {{subject.credits}}</li>
+                <li class="list-group-item"><strong>Profesor:</strong> {{subject.teacher}}</li>
+                <li class="list-group-item"><strong>Periodo:</strong> {{subject.period}}</li>
+                <li class="list-group-item">
+                    <strong>Imagen:</strong>
+                    <img src="/subject/{{subject.id}}/image" alt="{{subject.name}}" class="img-fluid" style="max-width: 150px;">
+                </li>
+            </ul>
+            <div class="text-center mt-4">
+                <a href="/detail/{{subject.id}}" class="btn btn-primary bi bi-skip-backward-fill"> Volver a la página de la asignatura</a>
+            </div>
+        </div>
+    </section>
+
+    {{>footer}}
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+{{>header}}
+<section>
+    <div class="subject_info_detail_and_form container mt-5 my-5">
+        <form class="needs-validation"  id="subjectForm" onsubmit="submitNewSubject(event)" novalidate>
+            <!--enctype="multipart/form-data" sirve para poder meter la imagen correctamente, la ruta que recibe el router para pintar la asignatura es subject/new-->
+            <h3 class="title_detail"><strong> Información de la nueva asignatura</strong></h3>
+
+            <div class="row">
+                <!-- Campo Nombre del Profesor -->
+                <div class="form-group col-md-6 mb-3 ">
+                    <label for="Professorname" class="form-label"><strong>Nombre del Profesor</strong></label>
+                    <input name="professor" type="text" class="form-control" id="Professorname" 
+                        placeholder="Escribe el nombre del profesor" title="Solo letras permitidas" required minlength="2" maxlength="50">
+                        <div class="invalid-feedback">
+                            Por favor escribe un nombre de profesor valido
+                          </div>
+                </div>
+
+                <!-- Campo Asignatura -->
+                <div class="form-group col-md-6 mb-3">
+                    <label for="subject" class="form-label"><strong>Asignatura</strong></label>
+                    <input name="subject" type="text" class="form-control" id="subject" oninput="validateSubject()"
+                        placeholder="Escribe el nombre de la asignatura" required>
+                        <div id="divNameSubjectError" class="invalid-feedback">
+                            Por favor escribe un nombre para la asignatura
+                          </div>
+                          <div id="ErrorSubject"></div>
+                    </div>
+            </div>
+
+            <div class="row">
+                <!-- Campo Cuatrimestre -->
+                <div class="form-group col-md-6 mb-3">
+                    <label for="four-month period" class="form-label"><strong>Cuatrimestre</strong></label>
+                    <select name="period" class="form-select" id="four-month period" aria-label="Dropdown of options" required>
+                        <option value="" selected disabled>Elige un Cuatrimestre...</option>
+                        <option value="Primer Cuatrimestre">Primer Cuatrimestre</option>
+                        <option value="Segundo Cuatrimestre">Segundo Cuatrimestre</option>
+                    </select>     
+                    <div class="invalid-feedback">
+                        Por favor selecciona un cuatrimestre
+                      </div>    
+                </div>
+
+                <!--Campo Créditos-->
+                <div class="form-group col-md-6 mb-3">
+                    <label for="credits" class="form-label"><strong>Créditos de la asignatura</strong></label>
+                    <input name="credits" type="number" class="form-control" id="credits"
+                        placeholder="Introduce los créditos" step="1" required min="1" max="30">
+                        <div class="invalid-feedback">
+                           Por favor introduce un valor valido para los creditos de la asignatura
+                          </div>    
+                </div>
+
+                <!-- Campo Descripción -->
+                <div class="form-group col-md-12 mb-3">
+                    <label for="description" class="form-label"><strong>Descripción</strong></label>
+                    <textarea name="description" class="form-control" id="Description" rows="3"
+                        placeholder="Escribe aquí la descripción de la asignatura" required minlength="2" maxlength="500"></textarea>
+                        <div class="invalid-feedback">
+                            Por favor introduce una descripción valida para la asignatura
+                          </div>    
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="image"><strong> Imagen de la asignatura</strong></label>
+                <div class="input-group mt-3">
+                    <input class="form-control" type="file" id="image" name="image"
+                        accept="image/png, image/jpeg, image/svg" aria-label="Subir imagen" required>
+                    <label id="button_upload_img" class="btn btn-success bi bi-file-earmark-arrow-up" for="image"> Subir
+                        Archivo</label>
+                        <div class="invalid-feedback">
+                            Por favor introduce una imagen para la asignatura
+                          </div>    
+                </div>
+            </div>
+
+            <div class="container container_flexbox">
+                <!-- Botón que abre el modal -->
+                <button type="submit" class="btn btn-primary bi bi-save"> Guardar</button>
+                <a id="Button_flex" href="/" class="btn btn-danger bi bi-x-circle"> Cancelar</a>
+            </div>  
+        </form>
+    </div>
+    </div>
+    {{>modal}}
+</section>
+<!-- Footer-->
+{{>footer}}

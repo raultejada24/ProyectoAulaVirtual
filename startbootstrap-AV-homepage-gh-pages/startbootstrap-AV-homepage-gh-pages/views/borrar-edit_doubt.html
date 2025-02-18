@@ -1,0 +1,37 @@
+<div class="subject_info_detail container mt-5 my-5">
+    <h3 style="text-align: center;"><strong>Editar Duda</strong></h3>
+    <!--Formulario de editar Dudas-->
+    <form role="form" action="/doubt/edited/{{subject_id}}/{{doubt.id}}" method="POST">
+        <input type="hidden" name="name" />
+        <div class="form-group mb-3">
+            <label for="Studentname" class="form-label"><strong>Nombre del Alumno</strong></label>
+            <input name="Studentname" type="text" class="form-control" id="Studentname" value="{{doubt.Studentname}}"
+                placeholder="Escribe tu nombre">  <!--maxlength="50"-->
+        </div>
+        <div class="form-group mb-3">
+            <label for="doubtdate" class="form-label"><strong>Fecha de Publicación</strong></label>
+            <input name="doubtdate" type="date" class="form-control" id="doubtdate" value="{{doubt.doubtdate}}" >
+        </div>
+        <div class="form-group mb-3">
+            <label for="topic" class="form-label"><strong>Tema</strong></label>
+            <select name="topic" class="form-select" id="topic" aria-label="Dropdown of options">
+                <option disabled >Elige un tema...</option>
+                <option value="1" {{optioOneSelected}}>Tema 1</option>
+                <option value="2" {{optioTwoSelected}}>Tema 2</option>
+                <option value="3" {{optioThreeSelected}}>Tema 3</option>
+                <option value="4" {{optioFourSelected}}>Tema 4</option>
+                <option value="5" {{optioFiveSelected}}>Tema 5</option>
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label for="doubtMessage" class="form-label"><strong>Duda del Alumno</strong></label>
+            <textarea name="doubtMessage" class="form-control" id="doubtMessage" rows="3"
+                placeholder="Escribe aquí tu duda" >{{doubt.doubtMessage}}</textarea> <!--minlength="2" maxlength="1000" -->
+        </div>
+        <div class="container container_flexbox">
+            <button type="submit" class="btn btn-success bi bi-save" style="margin-right: 10px;"> Guardar cambios</button>
+            <a href="/detail/{{subject_id}}" class="btn btn-danger bi">Cancelar</a>
+        </div>
+                     
+    </form>
+</div>

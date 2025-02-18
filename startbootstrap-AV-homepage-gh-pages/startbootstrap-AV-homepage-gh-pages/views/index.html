@@ -1,0 +1,92 @@
+{{>header}}
+    <!-- Section PRIMER CUATRIMESTRE-->
+    <section class="py-5 " id = "1Q">
+        <h1 id="title_1Q_2Q" class="px-4 px-lg-5 my-5" >PRIMER CUATRIMESTRE </h1>
+        <div class="container-fluid px-lg-5">
+            <div id="Period1" class="row gx-4 gx-lg-5 row-cols-xl-3 row-cols-md-3 row-cols-sm-2 justify-content-center ">
+                {{#subjectsPeriod1}}
+
+                <div class="col mb-5">
+                    
+                    <div id="card_subject" class=" card h-100">
+                        <!-- Subject image-->
+                        <img class="card-img-top" src="/subject/{{id}}/image" /> <!--El router que tiene esta ruta muestra la imagen que tiene asociada cada id-->
+                        <!--Subject details-->
+                        <div id="card_subject" class=" card-body p-4">
+                            <div class="text-center">
+                                <!-- Subject name-->
+                                <h5 class="fw-bolder">{{name}}</h5>
+                                <!-- Subject Teacher & Teacher-->
+                                {{teacher}} 
+                                <br>{{credits}}</br>
+                            </div>
+                        </div>
+                        <!-- Subject actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a id="subjectInfoButton" class="btn btn-outline-dark mt-auto" href="/detail/{{id}}">Acceder a la asignatura</a></div>
+                        </div>
+                    </div>
+                </div>
+            
+                {{/subjectsPeriod1}}
+                {{^subjectsPeriod1}}
+                    <div>
+                    <h1 class="Alternative_text bi bi-exclamation-triangle-fill display-6 text-danger"> Actualmente no hay asignaturas del primer cuatrimestre disponibles</h1>
+                    </div>
+                {{/subjectsPeriod1}}
+            </div>
+        </div>
+        <div class="container container_flexbox mt-5 my-6">
+            <button id="load-more-btn-1Q" onclick="loadMore(1)" class="btn btn-success mt-auto bi bi-arrow-clockwise"> Cargar más asignaturas</button>
+        </div>
+       
+    </section>
+    <!-- Section SEGUNDO CUATRIMESTRE-->
+        <section class="py-5 " id = "2Q">
+            <h1 id="title_1Q_2Q"class="px-4 px-lg-5 my-5" >SEGUNDO CUATRIMESTRE </h1>
+            <div class="container-fluid px-4 px-lg-5 mt-5">
+                <div id="Period2" class="row gx-4 gx-lg-5 row-cols-xl-3 row-cols-md-3 row-cols-sm-2 justify-content-center">
+                    <!--SUBJECT CARD-->
+                    {{#subjectsPeriod2}}
+                    <div class="col mb-5">
+                        
+                        <div id="card_subject" class=" card h-100">
+                            <!-- Subject image-->
+                            <img class="card-img-top" src="/subject/{{id}}/image" width="300px" height="100px" /> <!--El router que tiene esta ruta muestra la imagen que tiene asociada cada id-->
+                            <!--Subject details-->
+                            <div id="card_subject" class=" card-body p-4">
+                                <div class="text-center">
+                                    <!-- Subject name-->
+                                    <h5 class="fw-bolder">{{name}}</h5>
+                                    <!-- Subject Teacher & Teacher-->
+                                    {{teacher}} 
+                                    <br>{{credits}}</br>
+                                </div>
+                            </div>
+                            <!-- Subject actions-->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/detail/{{id}}">Acceder a la asignatura</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/subjectsPeriod2}}
+                    {{^subjectsPeriod2}}
+                    <div>
+                    <h1 class="Alternative_text bi bi-exclamation-triangle-fill display-6 text-danger"> Actualmente no hay asignaturas del segundo cuatrimestre disponibles</h1>
+                    </div>
+                    {{/subjectsPeriod2}}
+                    
+                </div>
+               
+            </div>
+            <div class="container container_flexbox mt-5 my-6">
+                <button id="load-more-btn-2Q" onclick="loadMore(2)"class="btn btn-success mt-auto bi bi-arrow-clockwise"> Cargar más asignaturas</button>
+               </div>
+        </section>     
+<div class="container container_flexbox mt-5 my-6">
+        <a href="/createNewSubject" class="btn btn-success bi bi-plus-square"> Agregar Asignatura</a> 
+ </div>
+    <!-- Footer-->
+    {{>footer}}
+</body>
+</html>

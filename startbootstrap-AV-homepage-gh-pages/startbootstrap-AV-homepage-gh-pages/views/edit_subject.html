@@ -1,0 +1,91 @@
+{{>header}}
+<body>
+    <br>
+    <section class="py-5" >
+        <div class="subject_info_detail_and_form  container mt-5 my-5">
+            <h3 style="text-align: center;"><strong>Editar Asignatura</strong></h3>
+            <!-- Formulario de editar Asignatura -->
+            <form onsubmit="submitEditSubject(event)" id="editSubjectForm"class="needs-validation" novalidate >            
+            <div class="row">
+                <!-- Campo Nombre del Profesor -->
+                 
+                <div class="form-group col-md-6 mb-3 ">
+                    <label for="teacher" class="form-label"><strong>Nombre del Profesor</strong></label>
+                    <input name="teacher" type="text" class="form-control" id="teacher" 
+                        placeholder="Escribe el nombre del profesor" title="Solo letras permitidas" minlength="2" maxlength="50" value="{{subject.teacher}}" required>
+                        <div class="invalid-feedback">
+                            Por favor escribe un nombre de profesor valido
+                        </div>
+                </div>
+                <!-- Campo Asignatura -->
+                <div class="form-group col-md-6 mb-3">
+                    <label for="subject" class="form-label"><strong>Asignatura</strong></label>
+                    <input name="subject" type="text" class="form-control" id="subject" minlength = "2" maxlength = "100" placeholder="Escribe el nombre de la asignatura" value="{{subject.name}}" oninput="validateSubject()" required>
+                    <div id="divNameSubjectError" class="invalid-feedback">
+                        Por favor escribe un nombre para la asignatura
+                      </div>
+                      <div id="ErrorSubject"></div>
+                </div>
+            </div>
+            <div class="row">  
+                <!-- Campo Cuatrimestre -->
+                <div class="form-group col-md-6 mb-3">
+                    <label for="four-month period" class="form-label"><strong>Cuatrimestre</strong></label>
+                    <select name="period" class="form-select" id="four-month period" aria-label="Dropdown of options" required> <!--Se guarda como name = period.-->
+                        <option value="" disabled>Elige un Cuatrimestre...</option>
+                        <option value="Primer Cuatrimestre" {{optionOneSelected}}>Primer Cuatrimestre</option>
+                        <option value="Segundo Cuatrimestre" {{optionTwoSelected}}>Segundo Cuatrimestre</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Por favor selecciona un cuatrimestre
+                      </div>  
+                </div>
+                <!--Campo Créditos-->
+                <div class="form-group col-md-6 mb-3">
+                    <label for="credits" class="form-label" ><strong>Créditos de la asignatura</strong></label>
+                    <input name="credits" type="number" class="form-control" id="credits" placeholder="Introduce los créditos" step="1" max="30" value="{{numOfCredits}}" required>
+                    <div class="invalid-feedback">
+                        Por favor introduce un valor valido para los creditos de la asignatura
+                       </div>  
+                </div>
+            </div>
+            <!-- Campo Descripción -->
+            <div class="form-group col-md-12 mb-3">
+                <label for="description" class="form-label"><strong>Descripción</strong></label>
+                <textarea name="description" class="form-control" id="description" rows="3" maxlength="500"
+                    placeholder="Escribe aquí la descripción de la asignatura"  required>{{subject.desc}}</textarea>
+                    <div class="invalid-feedback">
+                        Por favor introduce una descripción valida para la asignatura
+                      </div>  
+            </div>
+            
+            <div class="form-group mb-3">
+                <label for="image"class="form-label"><strong> Imagen actual de la asignatura: </strong></label>
+                <div>
+                    <!-- Previsualización de la imagen actual -->
+                    <img src="/subject/{{subject.id}}/image" alt="Imagen de la asignatura" class="img-fluid" style="max-width: 200px; margin-bottom: 10px;" />
+                </div>
+                <div class="input-group mt-3">
+                    <input type="file" class="form-control" id="image" name="image"accept="image/png, image/jpeg, image/svg" aria-label="Subir imagen">
+                    <label id="button_upload_img" class="btn btn-success bi bi-file-earmark-arrow-up" for="image"> Subir Archivo</label>           
+                </div>
+                <strong>Si no deseas cambiar la imagen, deja el campo vacío.</strong>
+                <div class="invalid-feedback">
+                    Por favor introduce una imagen para la asignatura
+                  </div>  
+            </div>
+
+                <div class="container container_flexbox">
+                    <button type="submit" class="btn btn-success bi bi-save"> Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    {{>modal}}
+    </section>
+
+    <div class="container container_flexbox mt-1 my-5">
+        <a href="/detail/{{subject.id}}" class="btn btn-primary bi bi-skip-backward-fill"> Volver a la página de la asignatura </a>
+    </div>
+    {{>footer}}
+</body>
+</html>

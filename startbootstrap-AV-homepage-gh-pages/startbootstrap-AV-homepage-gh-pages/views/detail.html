@@ -1,0 +1,120 @@
+<html>
+
+<body>
+    {{>header}}
+     <!-- Información de la Asignatura -->
+     <section class="py-5">
+        <div class="subject_info_detail_and_form container px-4 px-lg-5 mt-5">
+            <h2 class="title_detail"><strong>Información de la Asignatura: {{subject.name}}</strong></h2>
+            <div class="container mt-5 my-5">
+                <div class="row">
+                    <div class="col-4">
+                        <img style="width: 270px; height: 170px" src="/subject/{{subject.id}}/image" alt="{{subject.name}}" class="img-fluid mb-4" style="margin-top: 10pt;" />
+                    </div>
+                    <div class="col-8">
+                        <ul>
+                            <li><p><strong>Descripción:</strong> {{subject.desc}}</p></li>
+                            <li><p><strong>Número de Créditos:</strong> {{subject.credits}}</p></li>
+                            <li><p><strong>Profesor:</strong> {{subject.teacher}}</p></li>
+                            <li><p><strong>Periodo:</strong> {{subject.period}}</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container container_flexbox">
+                    <button class="btn btn-danger bi bi-trash" onclick="deleteSubject({{subject.id}})" > Borrar</button> <!--onclick="window.location.href='/subject/{{subject.id}}/delete';-->
+                    <a id="Button_flex_detail" href="/subject/{{subject.id}}/edit" class="btn btn-warning bi bi-pencil-square"> Editar</a>
+                    <a id="Button_flex_detail" href="/" class="btn btn-primary bi bi-house"> Volver a la página principal</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Foro de dudas de la asignatura -->
+        <div id="doubts" class="container px-4 px-lg-5 my-3">
+            <h3 class="title_detail"><strong>Foro de dudas de la asignatura:</strong></h3>
+                {{#subj_doubts}}
+                <div id="doubt-{{id}}">
+                    <div class="doubt mb-3 comment">
+                        <h4><strong></strong>Nombre del Alumno:</strong> {{Studentname}}</h4>
+                        <p><strong>Fecha de Publicación:</strong> {{doubtdate}}</p>
+                        <p><strong>Tema:</strong> {{topic}}</p>
+                        <p><strong>Duda:</strong> {{doubtMessage}}</p>
+                        <!-- Action Buttons -->
+                        <button class="btn btn-danger bi bi-trash" onclick="deleteDoubt({{id}})"> Borrar</button>
+                        <button id="/editButton/{{subject.id}}/{{id}}"
+                            class="btn btn-warning bi bi-pencil-square Button_flex_detail"
+                            onclick="editDoubt({{subject.id}},{{id}})"> Editar </button>
+                    </div>
+                </div>
+                {{/subj_doubts}}
+                <!--En caso de que todavía no haya dudas-->
+                <div id="EmptyDoubtSectionMessage">
+                {{^subj_doubts}}
+                <div class="doubt, Alternative_text">
+                    <p class="bi bi-exclamation-triangle-fill text-danger"> Actualmente no se han subido dudas sobre
+                        esta asignatura al foro </p>
+                </div>
+                {{/subj_doubts}}
+            </div>
+
+        </div>
+
+        <!-- Formulario para nueva Duda -->
+        <section class="py-5">
+            <div class="container newd px-4 px-lg-5 mt-5">
+                <h3 style="text-align: center;"><strong>Crear Nueva Duda</strong></h3>
+                <form class="needs-validation" id="doubtForm" onsubmit="submitNewDoubt(event)" novalidate>
+                    <div class="form-group mb-3">
+                        <label for="studentName" class="form-label"><strong>Nombre del Alumno</strong></label>
+                        <input name="studentName" type="text" class="form-control" id="studentName"
+                            placeholder="Escribe tu nombre" minlength="2" maxlength="50" required>
+                        <div class="invalid-feedback">
+                            Por favor escribe un nombre válido
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="publicationDate" class="form-label"><strong>Fecha de Publicación</strong></label>
+                        <input name="date" type="date" class="form-control" id="publicationDate" required>
+                        <div class="invalid-feedback">
+                            Por favor seleccione la fecha de publicación
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="topic" class="form-label"><strong>Tema</strong></label>
+                        <select name="topic" class="form-select" id="topic" aria-label="Dropdown of options" required>
+                            <option value="" selected disabled>Elige un tema...</option>
+                            <option value="1">Tema 1</option>
+                            <option value="2">Tema 2</option>
+                            <option value="3">Tema 3</option>
+                            <option value="4">Tema 4</option>
+                            <option value="5">Tema 5</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Por favor seleccione un tema
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="doubt" class="form-label"><strong>Duda del Alumno</strong></label>
+                        <textarea name="doubtMessage" class="form-control" id="doubt" rows="3"
+                            placeholder="Escribe aquí tu duda" minlength="2" maxlength="1000" required></textarea>
+                        <div id="divNameSubjectError" class="invalid-feedback">
+                            Por favor escribe una descripción válida de la duda
+                        </div>
+                    </div>
+
+                    <div class="container container_flexbox">
+                        <button type="submit" class="btn btn-success bi bi-upload"> Crear</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <div class="container container_flexbox mt-5 my-5">
+            <a href="/" class="btn btn-primary bi bi-house"> Volver a la página principal</a>
+        </div>
+    </section>
+    {{>modal}}
+    <!-- Footer-->
+    {{>footer}}
+</body>
+
+</html>
