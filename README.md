@@ -1,57 +1,53 @@
 # 🎓 Aula Virtual
 
-**Aula Virtual** es una página web para la **gestión de asignaturas** y la resolución de **dudas de los estudiantes**. Permite crear y listar asignaturas, y a los alumnos publicar sus dudas para que el profesor pueda resolverlas.
+**Aula Virtual** is a website for **course management** and resolving **student questions**. It allows creating and listing courses, and enables students to post their questions so the professor can answer them.
 
 ---
 
-## 📑 Tabla de Contenidos
+## 📑 Table of Contents
 
-- [Características](#características)  
-- [Modelo de Datos](#modelo-de-datos)  
-- [FAQ](#faq)  
-
----
-
-## 🏆 Características
-
-- **CRUD de Asignaturas**: Crear, leer, actualizar y eliminar asignaturas.  
-- **Listado de Dudas**: Los estudiantes pueden publicar dudas en cada asignatura.  
-- **Interfaz Clara**: Vista por asignatura con su información y sección de dudas.  
-- **Responsive**: Adaptada para escritorio y dispositivos móviles.
+- [Features](#-features)  
+- [Data Model](#-data-model)  
+- [FAQ](#-faq)  
 
 ---
 
-## 🗂️ Modelo de Datos
+## 🏆 Features
 
-### Entidad Principal: Asignatura
-- **nombre** (string)  
-- **descripción** (string)  
-- **créditos** (number)  
-- **profesor** (string)  
-- **imagen** (URL / fichero)
+- **Course CRUD**: Create, read, update, and delete courses.  
+- **Question List**: Students can post questions within each course.  
+- **Clear Interface**: Course view with its detailed information and a dedicated questions section.  
+- **Responsive**: Fully adapted for desktop and mobile devices.
 
-### Entidad Secundaria: Duda
-- **alumno** (string)  
-- **fechaPublicación** (Date)  
-- **contenido** (string)  
-- **asignaturaId** (referencia a Asignatura)
+---
 
-**Relación**:  
-- Una **Asignatura** tiene muchas **Dudas**.  
-- Un **estudiante** publica varias **Dudas**, cada una ligada a una Asignatura.
+## 🗂️ Data Model
 
---
+### Main Entity: Course
+- **name** (string)  
+- **description** (string)  
+- **credits** (number)  
+- **professor** (string)  
+- **image** (URL / file)
+
+### Secondary Entity: Question
+- **student** (string)  
+- **publicationDate** (Date)  
+- **content** (string)  
+- **courseId** (reference to Course)
+
+**Relationship**:  
+- One **Course** has many **Questions**.  
+- A **student** can post multiple **Questions**, each linked to a specific Course.
+
+---
 
 ## ❓ FAQ
 
-**¿Cómo crear una nueva asignatura?**  
-En la sección “Asignaturas” haz clic en “Crear Asignatura” y rellena el formulario con nombre, descripción, créditos, profesor e imagen.
+**How do I create a new course?** In the "Courses" section, click on "Create Course" and fill out the form with the name, description, credits, professor, and image.
 
-**¿Cómo publico una duda?**  
-Dentro de la página de la asignatura, completa el formulario de “Publicar duda” con tu nombre y el contenido de la duda. Se guardará con la fecha actual.
+**How do I post a question?** Inside the course page, fill out the "Post question" form with your name and the content of your question. It will be saved with the current date.
 
-**¿Puedo editar o eliminar dudas?**  
-Solo el profesor (o rol administrador) puede marcar una duda como resuelta o eliminarla si procede.
+**Can I edit or delete questions?** Only the professor (or an administrator role) can mark a question as resolved or delete it if necessary.
 
-**¿Cómo cambio el puerto de la aplicación?**  
-Modifica la variable `PORT` en tu archivo `.env` antes de arrancar el servidor.
+**How do I change the application port?** Modify the `PORT` variable in your `.env` file before starting the server.
